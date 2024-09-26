@@ -1,4 +1,4 @@
-# @angular-schule/ngx-deploy-starter
+# @xellafe/ngx-deploy-git-repo
 
 **Deploy your Angular app to the file system directly from the Angular CLI! 🚀**
 
@@ -7,14 +7,14 @@
 > The actual "deployment" is only a simple copy to another folder in the file system.
 >
 > **Learn more at
-> https://github.com/angular-schule/ngx-deploy-starter**
+> https://github.com/angular-schule/ngx-deploy-git-repo**
 
 ## Usage
 
-Add `@angular-schule/ngx-deploy-starter` to your project.
+Add `@xellafe/ngx-deploy-git-repo` to your project.
 
 ```bash
-ng add @angular-schule/ngx-deploy-starter
+ng add @xellafe/ngx-deploy-git-repo
 ```
 
 Deploy your project to the file system.
@@ -99,4 +99,4 @@ Code released under the [MIT license](LICENSE).
 
 <hr>
 
-## 🚀 Powered by [ngx-deploy-starter](https://github.com/angular-schule/ngx-deploy-starter)
+## 🚀 Powered by [ngx-deploy-git-repo](https://github.com/angular-schule/ngx-deploy-git-repo)

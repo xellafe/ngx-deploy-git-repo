@@ -28,8 +28,8 @@ jobs:
           npm install -g @angular/cli@next
           ng new your-angular-project --defaults
           cd your-angular-project
-          npm link @angular-schule/ngx-deploy-starter
-          ng add @angular-schule/ngx-deploy-starter
+          npm link @xellafe/ngx-deploy-git-repo
+          ng add @xellafe/ngx-deploy-git-repo
 
       - name: Deploy
         run: |

@@ -19,7 +19,7 @@ export async function run(
     await fse.copy(dir, options.targetDir);
 
     logger.info(
-      '🌟 Successfully published via @angular-schule/ngx-deploy-starter! Have a nice day!'
+      '🌟 Successfully published via @xellafe/ngx-deploy-git-repo! Have a nice day!'
     );
   } catch (error) {
     logger.error('❌ An error occurred!');

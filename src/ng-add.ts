@@ -48,7 +48,7 @@ export const ngAdd = (options: NgAddOptions) => async (
 
   project.targets.add({
     name: 'deploy',
-    builder: '@angular-schule/ngx-deploy-starter:deploy',
+    builder: '@xellafe/ngx-deploy-git-repo:deploy',
     options: {}
   });
 

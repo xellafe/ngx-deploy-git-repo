@@ -1,4 +1,4 @@
-# @angular-schule/ngx-deploy-starter: README for contributors
+# @xellafe/ngx-deploy-git-repo: README for contributors
 
 - [How to start ](#how-to-start)
 - [Local development](#local-development)
@@ -50,13 +50,13 @@ Execute the next three steps, if your test project is still older.
 
 ### 2. npm link
 
-Use the following instructions to make `@angular-schule/ngx-deploy-starter` available locally via `npm link`.
+Use the following instructions to make `@xellafe/ngx-deploy-git-repo` available locally via `npm link`.
 
 1. Clone the project
 
    ```sh
-   git clone https://github.com/angular-schule/ngx-deploy-starter.git
-   cd ngx-deploy-starter
+   git clone https://github.com/angular-schule/ngx-deploy-git-repo.git
+   cd ngx-deploy-git-repo
    ```
 
 2. Install the dependencies
@@ -83,7 +83,7 @@ Read more about the `link` feature in the [official NPM documentation](https://d
 
 ### 3. Adding to an Angular project -- ng add
 
-Once you have completed the previous steps to `npm link` the local copy of `@angular-schule/ngx-deploy-starter`, follow these steps to use it in a local Angular project.
+Once you have completed the previous steps to `npm link` the local copy of `@xellafe/ngx-deploy-git-repo`, follow these steps to use it in a local Angular project.
 
 1. Enter the project directory
 
@@ -91,16 +91,16 @@ Once you have completed the previous steps to `npm link` the local copy of `@ang
    cd your-angular-project
    ```
 
-2. Add the local version of `@angular-schule/ngx-deploy-starter`.
+2. Add the local version of `@xellafe/ngx-deploy-git-repo`.
 
    ```sh
-   npm link @angular-schule/ngx-deploy-starter
+   npm link @xellafe/ngx-deploy-git-repo
    ```
 
 3. Now execute the `ng-add` schematic.
 
    ```sh
-   ng add @angular-schule/ngx-deploy-starter
+   ng add @xellafe/ngx-deploy-git-repo
    ```
 
 4. You can now deploy your angular app to GitHub pages.
@@ -118,7 +118,7 @@ Once you have completed the previous steps to `npm link` the local copy of `@ang
 5. You can remove the link later by running `npm unlink`
 
 6. We can debug the deployment with VSCode within `your-angular-project`, too.
-   Go to `your-angular-project/node_modules/@angular-schule/ngx-deploy-starter/deploy/actions.js` and place a breakpoint there.
+   Go to `your-angular-project/node_modules/@xellafe/ngx-deploy-git-repo/deploy/actions.js` and place a breakpoint there.
    Now you can debug with the following `launch.json` file:
 
    ```json
@@ -145,7 +145,7 @@ Testing is done with [Jest](https://jestjs.io/).
 To run the tests:
 
 ```sh
-cd ngx-deploy-starter/src
+cd ngx-deploy-git-repo/src
 npm test
 ```
 
@@ -156,10 +156,11 @@ To debug your deployer you need to:
 1. Place `debugger` statement, where you want your deployer stops.
 2. Follow the steps of [npm link](#2-npm-link) described here. compile, link and install linked in a local project
 3. Now, on the project that you linked the deployer, run it on debug mode using:
-    - | Normal Command         | Command on Debug Mode                                                     |
-      | :--------------------- | :------------------------------------------------------------------------ |
-      | `ng deploy`            | `node --inspect-brk ./node_modules/@angular/cli/bin/ng deploy`            |
-      | `ng add YOUR_DEPLOYER` | `node --inspect-brk ./node_modules/@angular/cli/bin/ng add YOUR_DEPLOYER` |
+
+   - | Normal Command         | Command on Debug Mode                                                     |
+     | :--------------------- | :------------------------------------------------------------------------ |
+     | `ng deploy`            | `node --inspect-brk ./node_modules/@angular/cli/bin/ng deploy`            |
+     | `ng add YOUR_DEPLOYER` | `node --inspect-brk ./node_modules/@angular/cli/bin/ng add YOUR_DEPLOYER` |
 
 4. Use your favorite [Inspector Client](https://nodejs.org/de/docs/guides/debugging-getting-started/#inspector-clients) to debug
 
@@ -170,7 +171,7 @@ To debug your deployer you need to:
 ## Publish to NPM
 
 ```
-cd ngx-deploy-starter/src
+cd ngx-deploy-git-repo/src
 npm run prettier
 npm run build
 npm run test
@@ -179,7 +180,7 @@ npm publish dist --access public
 
 ## Keeping track of all the forks
 
-[ngx-deploy-starter](https://github.com/angular-schule/ngx-deploy-starter/) and
+[ngx-deploy-git-repo](https://github.com/angular-schule/ngx-deploy-git-repo/) and
 [angular-cli-ghpages](https://github.com/angular-schule/angular-cli-ghpages/) (both developed by Johannes Hoppe) are follow-up projects of the deprecated [ngx-gh demo](https://github.com/mgechev/ngx-gh).
 This project was a follow-up of the deploy schematics from the [angularfire](https://github.com/angular/angularfire/) project.
 
