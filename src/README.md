@@ -97,7 +97,7 @@ Specify the commit message.
 - **optional**
 - Default: `undefined`
 - Example:
-  - `glpat-Ue4tbpjwRqgO7kFuH5Lu`
+  - `xxxxxx-xxxxxxxxxxxxxxxxxxxx`
 
 If you have set up 2FA on your account, you need to use a Personal Access Token to perform operations on the repository. See https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html for an example.  
 The only needed scopes are read & write repository.
