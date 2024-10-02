@@ -34,7 +34,7 @@ We are there to assist you in creating a builder.
 1. fork this repository
 2. adjust the `package.json`
 3. search and replace for the string `@xellafe/ngx-deploy-git-repo` and `ngx-deploy-git-repo` and choose your own name.
-4. search and replace for the string `to the file system` and name your deploy target.
+4. search and replace for the string `to any Git repo` and name your deploy target.
 5. add your deployment code to `src/engine/engine.ts`, take care of the tests
 6. follow the instructions from the [contributors README](docs/README_contributors.md) for build, test and publishing.
 

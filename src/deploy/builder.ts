@@ -23,8 +23,9 @@ export default createBuilder(
     try {
       await deploy(engine, context, buildTarget, options);
     } catch (e) {
-      context.logger.error('❌ An error occurred when trying to deploy:');
-      context.logger.error(e.message);
+      context.logger.error(
+        `❌ An error occurred when trying to deploy: ${e.message}`
+      );
       return { success: false };
     }
 

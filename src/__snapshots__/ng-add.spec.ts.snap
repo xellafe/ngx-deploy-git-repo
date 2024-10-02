@@ -2,30 +2,29 @@
 
 exports[`ng-add generating files generates new files if starting from scratch 1`] = `
 "{
-  \\"version\\": 1,
-  \\"defaultProject\\": \\"THEPROJECT\\",
-  \\"projects\\": {
-    \\"THEPROJECT\\": {
-      \\"projectType\\": \\"application\\",
-      \\"root\\": \\"PROJECTROOT\\",
-      \\"architect\\": {
-        \\"build\\": {
-          \\"options\\": {
-            \\"outputPath\\": \\"dist/THEPROJECT\\"
+  "version": 1,
+  "projects": {
+    "THEPROJECT": {
+      "projectType": "application",
+      "root": "PROJECTROOT",
+      "architect": {
+        "build": {
+          "options": {
+            "outputPath": "dist/THEPROJECT"
           }
         },
-        \\"deploy\\": {
-          \\"builder\\": \\"@xellafe/ngx-deploy-git-repo:deploy\\"
+        "deploy": {
+          "builder": "@xellafe/ngx-deploy-git-repo:deploy"
         }
       }
     },
-    \\"OTHERPROJECT\\": {
-      \\"projectType\\": \\"application\\",
-      \\"root\\": \\"PROJECTROOT\\",
-      \\"architect\\": {
-        \\"build\\": {
-          \\"options\\": {
-            \\"outputPath\\": \\"dist/OTHERPROJECT\\"
+    "OTHERPROJECT": {
+      "projectType": "application",
+      "root": "PROJECTROOT",
+      "architect": {
+        "build": {
+          "options": {
+            "outputPath": "dist/OTHERPROJECT"
           }
         }
       }
@@ -36,34 +35,33 @@ exports[`ng-add generating files generates new files if starting from scratch 1`
 
 exports[`ng-add generating files overrides existing files 1`] = `
 "{
-  \\"version\\": 1,
-  \\"defaultProject\\": \\"THEPROJECT\\",
-  \\"projects\\": {
-    \\"THEPROJECT\\": {
-      \\"projectType\\": \\"application\\",
-      \\"root\\": \\"PROJECTROOT\\",
-      \\"architect\\": {
-        \\"build\\": {
-          \\"options\\": {
-            \\"outputPath\\": \\"dist/THEPROJECT\\"
+  "version": 1,
+  "projects": {
+    "THEPROJECT": {
+      "projectType": "application",
+      "root": "PROJECTROOT",
+      "architect": {
+        "build": {
+          "options": {
+            "outputPath": "dist/THEPROJECT"
           }
         },
-        \\"deploy\\": {
-          \\"builder\\": \\"@xellafe/ngx-deploy-git-repo:deploy\\"
+        "deploy": {
+          "builder": "@xellafe/ngx-deploy-git-repo:deploy"
         }
       }
     },
-    \\"OTHERPROJECT\\": {
-      \\"projectType\\": \\"application\\",
-      \\"root\\": \\"PROJECTROOT\\",
-      \\"architect\\": {
-        \\"build\\": {
-          \\"options\\": {
-            \\"outputPath\\": \\"dist/OTHERPROJECT\\"
+    "OTHERPROJECT": {
+      "projectType": "application",
+      "root": "PROJECTROOT",
+      "architect": {
+        "build": {
+          "options": {
+            "outputPath": "dist/OTHERPROJECT"
           }
         },
-        \\"deploy\\": {
-          \\"builder\\": \\"@xellafe/ngx-deploy-git-repo:deploy\\"
+        "deploy": {
+          "builder": "@xellafe/ngx-deploy-git-repo:deploy"
         }
       }
     }

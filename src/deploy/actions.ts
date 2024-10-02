@@ -4,8 +4,9 @@ import {
 } from '@angular-devkit/architect';
 import { logging } from '@angular-devkit/core';
 
-import { Schema } from './schema';
+import path from 'path';
 import { BuildTarget } from '../interfaces';
+import { Schema } from './schema';
 
 export default async function deploy(
   engine: {
@@ -49,18 +50,32 @@ export default async function deploy(
   }
 
   // 2. DEPLOYMENT
-  const buildOptions = await context.getTargetOptions(
-    targetFromTargetString(buildTarget.name)
-  );
-  if (!buildOptions.outputPath || typeof buildOptions.outputPath !== 'string') {
-    throw new Error(
-      `Cannot read the output path option of the Angular project '${buildTarget.name}' in angular.json`
+
+  let dir: string;
+
+  if (options.targetDir) {
+    dir = options.targetDir;
+  } else {
+    const buildOptions = await context.getTargetOptions(
+      targetFromTargetString(buildTarget.name)
     );
+    if (!buildOptions.outputPath) {
+      throw new Error(
+        `Cannot read the outputPath option of the Angular project '${buildTarget.name}' in angular.json.`
+      );
+    }
+
+    if (typeof buildOptions.outputPath === 'string') {
+      dir = path.join(buildOptions.outputPath, 'browser');
+    } else {
+      const obj = buildOptions.outputPath as any;
+      dir = path.join(obj.base, obj.browser);
+    }
   }
 
   await engine.run(
-    buildOptions.outputPath,
+    dir,
     options,
-    (context.logger as unknown) as logging.LoggerApi
+    context.logger as unknown as logging.LoggerApi
   );
 }

@@ -1,7 +1,7 @@
 {
   "$id": "Schema",
   "title": "schema",
-  "description": "Deployment of Angular CLI applications to the file system",
+  "description": "Deployment of Angular CLI applications to any Git repo",
   "properties": {
     "baseHref": {
       "type": "string",
@@ -18,7 +18,34 @@
     },
     "targetDir": {
       "type": "string",
-      "description": "This is one of the options you can freely choose according to your needs. --- We will 'deploy' to this folder."
+      "description": "Overrides the directory where the build to deploy is located."
+    },
+    "repo": {
+      "type": "string",
+      "description": "Provide the repository URL."
+    },
+    "branch": {
+      "type": "string",
+      "description": "The git branch to push your pages to.",
+      "default": "prod"
+    },
+    "message": {
+      "type": "string",
+      "description": "The commit message.",
+      "default": "Deploy release"
+    },
+    "oauthPac": {
+      "type": "string",
+      "description": "The PAT used to perform operation on the repository"
+    },
+    "name": {
+      "type": "string",
+      "description": "The git user-name which is associated with this commit."
+    },
+    "email": {
+      "type": "string",
+      "description": "The git user-email which is associated with this commit."
     }
-  }
+  },
+  "required": ["repo", "oauthPac"]
 }

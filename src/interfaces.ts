@@ -7,7 +7,6 @@ export interface WorkspaceProject {
 }
 
 export interface Workspace {
-  defaultProject?: string;
   projects: Record<string, WorkspaceProject>;
 }
 
