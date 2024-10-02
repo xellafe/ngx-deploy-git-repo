@@ -97,11 +97,10 @@ Specify the commit message.
 - **optional**
 - Default: `undefined`
 - Example:
-  - `xxxxxx-xxxxxxxxxxxxxxxxxxxx`
+  - `<your-personal-access-token>`
 
-If you have set up 2FA on your account, you need to use a Personal Access Token to perform operations on the repository. See https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html for an example.  
-The only needed scopes are read & write repository.
-
+If you have set up 2FA on your account, you need to use a Personal Access Token to perform operations on the repository, or you could use it anyway. See https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html for an example.  
+The only needed scopes are those to read & write repository.
 
 #### --name & --email <a name="name"></a>
 
