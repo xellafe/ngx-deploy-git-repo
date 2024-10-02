@@ -1,55 +1,123 @@
-# @xellafe/ngx-deploy-git-repo 🚀
+# @xellafe/ngx-deploy-git-repo
 
-[![NPM version][npm-image]][npm-url]
-[![The MIT License](https://img.shields.io/badge/license-MIT-orange.svg?color=blue&style=flat-square)](http://opensource.org/licenses/MIT)
+**Deploy your Angular app to any Git repo directly from the Angular CLI! 🚀**
 
-![Banner](docs/ng-deploy-starter-project.jpg)
+## Usage
 
-## About
+Add `@xellafe/ngx-deploy-git-repo` to your project.
 
-This is a sample project that helps you to implement your own **deployment builder** (`ng deploy`) for the Angular CLI.
-The groundwork of this starter was provided by Minko Gechev's [ngx-gh project](https://github.com/mgechev/ngx-gh).
+```bash
+ng add @xellafe/ngx-deploy-git-repo
+```
 
-This project has the following purposes:
+Deploy your project.
 
-**Goal 1:** To promote the adoption of `ng deploy` by providing a blueprint for new builders.  
-**Goal 2:** To clarify various questions and to standardise the experience of the existing builders.
+```
+ng deploy [options]
+```
 
-We hope for an inspiring discussion, pull requests and questions.
+## Options
 
-**If you don't know `ng deploy` yet, learn more about this command here:  
-[👉 Blogpost: All you need to know about `ng deploy`](https://angular.schule/blog/2019-08-ng-deploy)**
+The following options are available.
 
-## Projects based on ngx-deploy-git-repo
+#### --base-href
 
-- [angular-cli-ghpages](https://github.com/angular-schule/angular-cli-ghpages) – Deploy your Angular app to **GitHub pages** directly from the Angular CLI! 🚀
-- [ngx-deploy-docker](https://github.com/kauppfbi/ngx-deploy-docker) – Deploy your Angular Application to a **Docker registry** directly from the Angular CLI! 🚀
-- [ngx-deploy-npm](https://github.com/bikecoders/ngx-deploy-npm) – Deploy your Angular Package to **NPM** directly from the Angular CLI! 🚀
-- [ngx-deploy-ftp](https://github.com/bohoffi/ngx-deploy-ftp) – Deploy Angular apps to an **FTP remote** using the Angular CLI! 🚀
+- **optional**
+- Default: `undefined` (string)
+- Example:
+  - `ng deploy` -- `<base href="/">` remains unchanged in your `index.html`
+  - `ng deploy --base-href=/the-repositoryname/` -- `<base href="/the-repositoryname/">` is added to your `index.html`
 
-## Goal 1: How to make your own deploy builder
+Specifies the base URL for the application being built.
+Same as `ng build --base-href=/XXX/`
 
-We are there to assist you in creating a builder.
+#### --build-target
 
-1. fork this repository
-2. adjust the `package.json`
-3. search and replace for the string `@xellafe/ngx-deploy-git-repo` and `ngx-deploy-git-repo` and choose your own name.
-4. search and replace for the string `to any Git repo` and name your deploy target.
-5. add your deployment code to `src/engine/engine.ts`, take care of the tests
-6. follow the instructions from the [contributors README](docs/README_contributors.md) for build, test and publishing.
+- **optional**
+- Default: `undefined` (string)
+- Example:
+  - `ng deploy` – Angular project is built in `production` mode
+  - `ng deploy --build-target=test` – Angular project is using the build configuration `test` (this configuration must exist in the `angular.json` file)
 
-You are free to customise this project according to your needs.
-Please keep the spirit of Open Source alive and use the MIT or a compatible license.
+If no `buildTarget` is set, the `production` build of the default project will be chosen.
+The `buildTarget` simply points to an existing build configuration for your project, as specified in the `configurations` section of `angular.json`.
+Most projects have a default configuration and a production configuration (commonly activated by using the `--prod` flag) but it is possible to specify as many build configurations as needed.
 
-## Goal 2: Best practices for deployment builders
+This is equivalent to calling the command `ng build --configuration=XXX`.
+This command has no effect if the option `--no-build` is active.
 
-This project also aims to be a reference for the existing builders.
-Recommendations are made through RFCs (Request for Comments), and we are very pleased about their adoption.
-[Here is a list of all existing RFCs](https://github.com/angular-schule/ngx-deploy-git-repo/discussions?discussions_q=RFC+in%3Atitle).
+#### --no-build
 
-## License
+- **optional**
+- Default: `false` (string)
+- Example:
+  - `ng deploy` – Angular project is build in production mode before the deployment
+  - `ng deploy --no-build` – Angular project is NOT build
+
+Skip build process during deployment.
+This can be used when you are sure that you haven't changed anything and want to deploy with the latest artifact.
+This command causes the `--build-target` setting to have no effect.
+
+#### --target-dir <a name="target-dir"></a>
+
+- **optional**
+- Default: `undefined` (string) – If undefined use value from `--build-target` options, or `production` otherwise.
+- Example:
+  - `ng deploy --dir=dist/staging`
+
+Overrides the directory where the build to deploy is located.
+
+#### --repo
+
+- Example:
+  - `ng deploy --repo=https://<yout-git-repo-url>.git`
+
+Specify the target repository.
+
+#### --branch
+
+- **optional**
+- Default: `main` (string)
+- Example:
+  - `ng deploy --branch=develop`
+
+Specify the target branch. If it doesn't exists, it is created.
+
+#### --message
+
+- **optional**
+- Default: `Deploy release` (string)
+- Example:
+  - `ng deploy --message="This is not an auto generated commit message"`
+
+Specify the commit message.
+
+#### --oauth-pac
+
+- **optional**
+- Default: `undefined`
+- Example:
+  - `xxxxxx-xxxxxxxxxxxxxxxxxxxx`
+
+If you have set up 2FA on your account, you need to use a Personal Access Token to perform operations on the repository. See https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html for an example.  
+The only needed scopes are read & write repository.
+
+
+#### --name & --email <a name="name"></a>
+
+- **optional**
+- Default: value of `git config user.name` and `git config user.email`
+- Example: `ng deploy --name="Username" --email=mail@example.org`
+
+If you run the command in a repository without `user.name` or `user.email` Git config properties
+(or on a machine without these global config properties),
+you must provide user info before Git allows you to commit.
+In this case, provide **both** `name` and `email` string values to identify the committer.
+
+## License <a name="license"></a>
 
 Code released under the [MIT license](LICENSE).
 
-[npm-url]: https://www.npmjs.com/package/@xellafe/ngx-deploy-git-repo
-[npm-image]: https://badge.fury.io/js/%40angular-schule%2Fngx-deploy-git-repo.svg
+<hr>
+
+## 🚀 Powered by [ngx-deploy-starter](https://github.com/angular-schule/ngx-deploy-starter)
